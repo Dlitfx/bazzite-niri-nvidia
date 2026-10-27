@@ -1,81 +1,80 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: bazzite-test
+name: niri-bazzite
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: This is my personal OS image.Bazzite 底层 + niri/Noctalia 桌面层
 
 # the base image to build on top of (FROM) and the version tag to use
 #base-image: ghcr.io/ublue-os/silverblue-main
-base-image: ghcr.io/ublue-os/base-nvidia
-image-version: latest # You can pin to a specific version of Fedora as well
+#base-image: ghcr.io/ublue-os/base-nvidia
+base-image: ghcr.io/ublue-os/bazzite-nvidia-open
+image-version: stable # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
-modules:
-  - type: files
-    files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+modules:
   - type: dnf
     repos:
+      cleanup: true
       copr:
-        - atim/starship
-        - ublue-os/bazzite
-        - ublue-os/bazzite-multilib
-        - ublue-os/packages
-        - yalter/niri
+        - yalter/niri            # 官方，非个人
     install:
       packages:
-        - micro
-        - starship
-         # --- niri 与 Wayland 基础设施 ---
         - niri
         - xwayland-satellite
-        - greetd
-        - greetd-tuigreet
-        - xdg-desktop-portal-gtk
-        - fcitx5          # 输入法，你熟
-        # --- Steam / Lutris 核心 ---
-        - steam
-        - lutris
-        - umu-launcher
-        - winetricks
-        # --- 游戏增强 ---
-        - gamescope
-        - mangohud
-        - goverlay
-        - vkBasalt
-        - obs-studio-plugin-vkcapture
-        # --- 性能层 ---
-        - scx-scheds
-        - scx-tools
-        - bpftune-gaming
-        - bees
-        # --- Xwayland 相关 ---
-        - xorg-x11-server-Xwayland
-        # --- 系统监控---
-        - htop
-        - btop
-        - dgop
+        - noctalia               # Fedora 官方源
+        - umbriel                # 可选，替代 SDDM
+        - xdg-desktop-portal-umbriel
+        - fuzzel
+        - kitty
+        - nemo
+        - udiskie
+        - xdg-user-dirs
+        - power-profiles-daemon
+        - gnome-keyring-pam
+        - bibata-cursor-themes
+        - adw-gtk3-theme
+      exclude:
+        - alacritty
+        - waybar
+        - mako
+        - swaylock
+
+  # 输入法：整族替换
+  - type: dnf
+    repos:
+      cleanup: true
+    install:
+      packages:
+        - fcitx5
+        - fcitx5-chinese-addons
+        - fcitx5-rime
+        - librime-lua
+        - librime-octagram
+        - fcitx5-gtk
+        - fcitx5-qt
+        - fcitx5-configtool
     remove:
       packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
-        #- firefox
-        #- firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-        []
+        - ibus
+        - ibus-gtk3
+        - ibus-gtk4
+        - ibus-libs
+        - ibus-setup
 
-  - type: default-flatpaks
-    configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
-        scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
-          []
-          #- org.mozilla.firefox
-          #- org.gnome.Loupe
-      - scope: user # Also add Flathub user repo, but no user packages
+  - type: dnf   # 中文字体与语言包
+    repos:
+      cleanup: true
+    install:
+      packages:
+        - default-fonts-cjk-sans
+        - google-noto-sans-cjk-vf-fonts
+        - google-noto-color-emoji-fonts
+        - fira-code-fonts
+        - glibc-all-langpacks
+        - langpacks-zh_CN
+        - langpacks-fonts-zh_CN
 
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing
