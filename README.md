@@ -13,7 +13,7 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/dlitfx/niri-bazzite:latest
+  sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/dlitfx/niri-bazzite:latest
   ```
 - Reboot to complete the rebase:
   ```
