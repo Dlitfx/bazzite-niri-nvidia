@@ -13,7 +13,7 @@
 
 - 先切换到未签名镜像，以便正确安装签名密钥与策略：
   ```
-  sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/dlitfx/niri-bazzite:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/dlitfx/niri-bazzite:latest
   ```
 - 重启以完成切换：
   ```
