@@ -18,29 +18,29 @@ modules:
   - type: dnf
     repos:
       cleanup: true
-      copr:
-        - yalter/niri            # 官方，非个人
+      #copr:
+      #  - yalter/niri            # 官方，非个人
     install:
       packages:
         - niri
         - xwayland-satellite
         - noctalia               # Fedora 官方源
-        - umbriel                # 可选，替代 SDDM
-        - xdg-desktop-portal-umbriel
+        #- umbriel                # 可选，替代 SDDM
+        #- xdg-desktop-portal-umbriel
         - fuzzel
         - kitty
         - nemo
         - udiskie
         - xdg-user-dirs
-        - power-profiles-daemon
         - gnome-keyring-pam
-        - bibata-cursor-themes
+        # - bibata-cursor-themes
         - adw-gtk3-theme
-      exclude:
         - alacritty
+      exclude:
         - waybar
         - mako
         - swaylock
+        - power-profiles-daemon
 
   # 输入法：整族替换
   - type: dnf
