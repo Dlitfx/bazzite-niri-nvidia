@@ -41,3 +41,7 @@
 ```bash
 cosign verify --key cosign.pub ghcr.io/dlitfx/niri-bazzite
 ```
+
+## appimage安装
+
+项目目录下有`install-appimages.sh`维护里面的下载链接，执行脚本后，再使用GearLever统一安装。

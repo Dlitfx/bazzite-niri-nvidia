@@ -85,10 +85,58 @@ modules:
 
   - type: dnf   # 个人软件包
     repos:
-      cleanup: true
+      # cleanup: true #注释掉后copr会把仓库里的写到新镜像里，可以dnf search搜到。
+      nonfree: rpmfusion #开启社区仓库
+      copr:
+        - hazel-bunny/ports
+        - ackerman/nexus
+        - luorain/open-orpheus
+        - kammer/omadora    
     install:
       packages:
+        # -- remmina和配套软件 --
+        - remmina
+        - remmina-plugins-vnc
+        - remmina-plugins-rdp
+        # ========= END =========
+        # -- url软件，需要定期维护 --
+        - https://github.com/AnInsomniacy/rayburst/releases/download/v4.1.1/Rayburst-4.1.1-1.x86_64.rpm
+        - https://github.com/SPlayer-Dev/SPlayer-Next/releases/download/v1.2.0/splayer-next-1.2.0-x86_64.rpm
+        - https://github.com/electerm/electerm/releases/download/v5.7.21/electerm-5.7.21-linux-x86_64.rpm
+        # ========= END =========
         - chezmoi
- 
+        - gearlever      # 归hazel-bunny/ports
+        - splayer-next   # 归ackerman/nexus
+        - open-orpheus   # 归luorain/open-orpheus
+        - typora         # 归kammer/omadora
+        - HandBrake-gui
+        - clash-verge
+        - firefox
+        - firefox-langpacks
+        - chromium
+        - dgop
+        - meld
+        - obs-studio
+        - haruna
+        
+  - type: default-flatpaks  # flatpaks 预安装软件包
+    notify: true
+    scope: user
+    install:
+      - it.mijorus.gearlever
+      - com.qq.QQ
+      - com.tencent.WeChat
+      - com.github.tchx84.Flatseal
+      - io.github.flattool.Warehouse
+      - com.ranfdev.DistroShelf
+      - com.microsoft.Edge
+      - no.mifi.losslesscut
+
+  - type: files #
+    files:
+      - source: system
+        destination: /
+
+
 
   - type: signing
