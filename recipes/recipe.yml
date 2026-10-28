@@ -105,11 +105,11 @@ modules:
         - https://github.com/electerm/electerm/releases/download/v5.7.21/electerm-5.7.21-linux-x86_64.rpm
         # ========= END =========
         - chezmoi
-        - gearlever      # 归hazel-bunny/ports
-        - splayer-next   # 归ackerman/nexus
-        - open-orpheus   # 归luorain/open-orpheus
-        - typora         # 归kammer/omadora
-        - HandBrake-gui
+        - gearlever           # 归hazel-bunny/ports
+        - splayer-next        # 归ackerman/nexus
+        - open-orpheus        # 归luorain/open-orpheus
+        - typora              # 归kammer/omadora
+        #- HandBrake-gui      # 依赖冲突，改用flatpaks
         - clash-verge
         - firefox
         - firefox-langpacks
@@ -132,6 +132,7 @@ modules:
           - com.ranfdev.DistroShelf
           - com.microsoft.Edge
           - no.mifi.losslesscut
+          - fr.handbrake.ghb
 
   - type: files #
     files:
