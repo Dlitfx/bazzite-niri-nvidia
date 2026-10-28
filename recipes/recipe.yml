@@ -109,7 +109,6 @@ modules:
         - splayer-next        # 归ackerman/nexus
         - open-orpheus        # 归luorain/open-orpheus
         - typora              # 归kammer/omadora
-        #- HandBrake-gui      # 依赖冲突，改用flatpaks
         - clash-verge
         - firefox
         - firefox-langpacks
