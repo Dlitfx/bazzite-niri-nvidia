@@ -41,6 +41,12 @@ modules:
         - mako
         - swaylock
         - power-profiles-daemon
+    # 禁用 KDE 的 X11/Wayland 视频桥接，niri 下用不到
+    remove:
+      auto-remove: false
+      packages:
+        - xwaylandvideobridge
+
 
   # 输入法：整族替换
   - type: dnf
@@ -76,5 +82,13 @@ modules:
         - glibc-all-langpacks
         - langpacks-zh_CN
         - langpacks-fonts-zh_CN
+
+  - type: dnf   # 个人软件包
+    repos:
+      cleanup: true
+    install:
+      packages:
+        - chezmoi
+ 
 
   - type: signing
