@@ -29,7 +29,6 @@ modules:
         #- xdg-desktop-portal-umbriel
         - fuzzel
         - kitty
-        - nemo
         - udiskie
         - xdg-user-dirs
         - gnome-keyring-pam
