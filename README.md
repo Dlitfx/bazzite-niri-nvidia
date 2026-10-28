@@ -42,6 +42,15 @@
 cosign verify --key cosign.pub ghcr.io/dlitfx/niri-bazzite
 ```
 
+## 上传前recipe.yml文件语法校验
+
+这个命令会检查 YAML 语法和模块的 schema 是否符合规范。
+
+```bash
+bluebuild validate ./recipes/recipe.yml
+```
+
+
 ## appimage安装
 
 项目目录下有`install-appimages.sh`维护里面的下载链接，执行脚本后，再使用GearLever统一安装。

@@ -120,17 +120,18 @@ modules:
         - haruna
         
   - type: default-flatpaks  # flatpaks 预安装软件包
-    notify: true
-    scope: user
-    install:
-      - it.mijorus.gearlever
-      - com.qq.QQ
-      - com.tencent.WeChat
-      - com.github.tchx84.Flatseal
-      - io.github.flattool.Warehouse
-      - com.ranfdev.DistroShelf
-      - com.microsoft.Edge
-      - no.mifi.losslesscut
+    configurations:
+      - notify: true
+        scope: user
+        install:
+          - it.mijorus.gearlever
+          - com.qq.QQ
+          - com.tencent.WeChat
+          - com.github.tchx84.Flatseal
+          - io.github.flattool.Warehouse
+          - com.ranfdev.DistroShelf
+          - com.microsoft.Edge
+          - no.mifi.losslesscut
 
   - type: files #
     files:
