@@ -117,6 +117,7 @@ modules:
         - meld
         - obs-studio
         - haruna
+        - micro
         
   - type: default-flatpaks  # flatpaks 预安装软件包
     configurations:
