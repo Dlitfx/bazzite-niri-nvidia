@@ -123,7 +123,11 @@ modules:
   - type: default-flatpaks  # flatpaks 预安装软件包
     configurations:
       - notify: true
-        scope: user
+        scope: system
+        repo:
+          url: https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo
+          name: flathub
+          title: Flathub (SJTU)
         install:
           - it.mijorus.gearlever
           - com.qq.QQ
