@@ -61,7 +61,7 @@ modules:
         - ibus
         - ibus-gtk3
         - ibus-gtk4
-        - ibus-libs
+        #- ibus-libs  不安装会影响桌面环境
         - ibus-setup
 
   - type: dnf   # 中文字体与语言包
