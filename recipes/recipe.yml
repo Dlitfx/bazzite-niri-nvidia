@@ -118,6 +118,7 @@ modules:
         - obs-studio
         - haruna
         - micro
+        - zsh
         
   - type: default-flatpaks  # flatpaks 预安装软件包
     configurations:
