@@ -50,6 +50,13 @@ cosign verify --key cosign.pub ghcr.io/dlitfx/niri-bazzite
 bluebuild validate ./recipes/recipe.yml
 ```
 
+## 系统后续升级
+
+系统镜像完成切换后
+
+```bash
+rpm-ostree upgrade
+```
 
 ## appimage安装
 
