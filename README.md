@@ -52,6 +52,37 @@ bluebuild validate ./recipes/recipe.yml
 
 ## 系统后续升级
 
+### 配置方法：为 rpm-ostreed 服务单独设置代理
+
+根据 Red Hat 和 Fedora 的文档，正确做法是通过 systemd drop-in 文件给 `rpm-ostreed.service` 注入代理环境变量。
+
+**1. 创建配置目录和文件**
+
+```bash
+sudo mkdir -p /etc/systemd/system/rpm-ostreed.service.d/
+```
+
+**2. 写入代理配置**
+
+使用 `sudo` 编辑或创建文件 `/etc/systemd/system/rpm-ostreed.service.d/00-proxy.conf`，内容如下（把其中的地址和端口换成你实际的代理）：
+
+```ini
+[Service]
+Environment="http_proxy=http://你的代理地址:端口"
+Environment="https_proxy=http://你的代理地址:端口"
+```
+
+如果代理需要用户名密码，格式是 `http://用户名:密码@代理地址:端口`。如果你的代理是 SOCKS5 类型，`rpm-ostree` 可能不支持，需要确认代理软件是否提供了 HTTP 代理端口。
+
+**3. 重载并重启服务**
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart rpm-ostreed.service
+```
+
+之后再次运行 `rpm-ostree upgrade`，下载流量就应该经过代理了。
+
 系统镜像完成切换后
 
 ```bash
