@@ -91,7 +91,8 @@ modules:
         - hazel-bunny/ports
         - ackerman/nexus
         - luorain/open-orpheus
-        - kammer/omadora    
+        - kammer/omadora
+        - oak443/clash-verge-rev    
     install:
       packages:
         # -- remmina和配套软件 --
@@ -101,7 +102,6 @@ modules:
         # ========= END =========
         # -- url软件，需要定期维护 --
         - https://github.com/AnInsomniacy/rayburst/releases/download/v4.1.1/Rayburst-4.1.1-1.x86_64.rpm
-        - https://github.com/SPlayer-Dev/SPlayer-Next/releases/download/v1.2.0/splayer-next-1.2.0-x86_64.rpm
         - https://github.com/electerm/electerm/releases/download/v5.7.21/electerm-5.7.21-linux-x86_64.rpm
         # ========= END =========
         - chezmoi
@@ -109,7 +109,7 @@ modules:
         - splayer-next        # 归ackerman/nexus
         - open-orpheus        # 归luorain/open-orpheus
         - typora              # 归kammer/omadora
-        - clash-verge
+        - clash-verge-rev     # 归oak443/clash-verge-rev
         - firefox
         - firefox-langpacks
         - chromium
