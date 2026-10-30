@@ -13,7 +13,7 @@
 
 - 先切换到未签名镜像，以便正确安装签名密钥与策略：
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/dlitfx/niri-bazzite:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/dlitfx/bazzite-niri-nvidia:latest
   ```
 - 重启以完成切换：
   ```
@@ -21,7 +21,7 @@
   ```
 - 然后切换到已签名镜像，如下所示：
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/dlitfx/niri-bazzite:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/dlitfx/bazzite-niri-nvidia:latest
   ```
 - 再次重启以完成安装：
   ```
@@ -39,7 +39,7 @@
 这些镜像使用 [Sigstore](https://www.sigstore.dev/) 的 [cosign](https://github.com/sigstore/cosign) 签名。你可以从本仓库下载 cosign.pub 文件，运行以下命令来验证签名：
 
 ```bash
-cosign verify --key cosign.pub ghcr.io/dlitfx/niri-bazzite
+cosign verify --key cosign.pub ghcr.io/dlitfx/bazzite-niri-nvidia
 ```
 
 ## 上传前recipe.yml文件语法校验

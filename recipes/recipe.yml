@@ -1,14 +1,14 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: niri-bazzite
+name: bazzite-niri-nvidia
 # description will be included in the image's metadata
 description: This is my personal OS image.Bazzite 底层 + niri/Noctalia 桌面层
 
 # the base image to build on top of (FROM) and the version tag to use
 #base-image: ghcr.io/ublue-os/silverblue-main
 #base-image: ghcr.io/ublue-os/base-nvidia
-base-image: ghcr.io/ublue-os/bazzite-nvidia-open
+base-image: ghcr.io/ublue-os/bazzite-nvidia
 image-version: stable # You can pin to a specific version of Fedora as well
 
 # module configuration, executed in order
@@ -130,7 +130,6 @@ modules:
         install:
           - it.mijorus.gearlever
           - com.qq.QQ
-          - com.tencent.WeChat
           - com.github.tchx84.Flatseal
           - io.github.flattool.Warehouse
           - com.ranfdev.DistroShelf
@@ -142,7 +141,5 @@ modules:
     files:
       - source: system
         destination: /
-
-
 
   - type: signing
