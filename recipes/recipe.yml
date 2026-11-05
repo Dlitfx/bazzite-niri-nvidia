@@ -89,7 +89,7 @@ modules:
       copr:
         - hazel-bunny/ports
         - ackerman/nexus
-        - luorain/open-orpheus
+        # - luorain/open-orpheus
         # - kammer/omadora  #系统已经升级45，但是这个库只到44，先按照下调写法固定版本
         - name: kammer/omadora
           chroot: fedora-44-x86_64
@@ -106,7 +106,7 @@ modules:
         - https://github.com/electerm/electerm/releases/download/v5.8.0/electerm-5.8.0-linux-x86_64.rpm
         # ========= END =========
         - chezmoi
-        - gearlever           # 归hazel-bunny/ports
+        # - gearlever           # 归hazel-bunny/ports
         - splayer-next        # 归ackerman/nexus
         - open-orpheus        # 归luorain/open-orpheus
         - typora              # 归kammer/omadora
@@ -130,7 +130,7 @@ modules:
           name: flathub
           title: Flathub (SJTU)
         install:
-          # - it.mijorus.gearlever
+          - it.mijorus.gearlever
           - com.qq.QQ
           - com.github.tchx84.Flatseal
           - io.github.flattool.Warehouse
