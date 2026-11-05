@@ -87,9 +87,9 @@ modules:
       # cleanup: true #注释掉后copr会把仓库里的写到新镜像里，可以dnf search搜到。
       nonfree: rpmfusion #开启社区仓库
       copr:
-        - hazel-bunny/ports
+        # - hazel-bunny/ports
         - ackerman/nexus
-        # - luorain/open-orpheus
+        - luorain/open-orpheus
         # - kammer/omadora  #系统已经升级45，但是这个库只到44，先按照下调写法固定版本
         - name: kammer/omadora
           chroot: fedora-44-x86_64
