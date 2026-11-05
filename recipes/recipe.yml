@@ -94,8 +94,8 @@ modules:
         # - name: kammer/omadora
         #   chroot: fedora-44-x86_64
         - oak443/clash-verge-rev
-    removeRepos:
-      - "copr:copr.fedorainfracloud.org:kammer:omadora"
+      disable:
+        - "copr:copr.fedorainfracloud.org:kammer:omadora"
     install:
       packages:
         # -- remmina和配套软件 --
