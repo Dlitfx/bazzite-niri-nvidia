@@ -90,7 +90,9 @@ modules:
         - hazel-bunny/ports
         - ackerman/nexus
         - luorain/open-orpheus
-        - kammer/omadora
+        # - kammer/omadora  #系统已经升级45，但是这个库只到44，先按照下调写法固定版本
+        - name: kammer/omadora
+          chroot: fedora-44-x86_64
         - oak443/clash-verge-rev    
     install:
       packages:
@@ -101,7 +103,7 @@ modules:
         # ========= END =========
         # -- url软件，需要定期维护 --
         - https://github.com/AnInsomniacy/rayburst/releases/download/v4.1.1/Rayburst-4.1.1-1.x86_64.rpm
-        - https://github.com/electerm/electerm/releases/download/v5.7.21/electerm-5.7.21-linux-x86_64.rpm
+        - https://github.com/electerm/electerm/releases/download/v5.8.0/electerm-5.8.0-linux-x86_64.rpm
         # ========= END =========
         - chezmoi
         - gearlever           # 归hazel-bunny/ports
@@ -128,7 +130,7 @@ modules:
           name: flathub
           title: Flathub (SJTU)
         install:
-          - it.mijorus.gearlever
+          # - it.mijorus.gearlever
           - com.qq.QQ
           - com.github.tchx84.Flatseal
           - io.github.flattool.Warehouse
