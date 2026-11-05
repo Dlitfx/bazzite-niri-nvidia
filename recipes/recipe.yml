@@ -91,8 +91,8 @@ modules:
         - ackerman/nexus
         - luorain/open-orpheus
         # - kammer/omadora  #系统已经升级45，但是这个库只到44，先按照下调写法固定版本
-        - name: kammer/omadora
-          chroot: fedora-44-x86_64
+        # - name: kammer/omadora
+        #   chroot: fedora-44-x86_64
         - oak443/clash-verge-rev    
     install:
       packages:
@@ -109,7 +109,7 @@ modules:
         # - gearlever           # 归hazel-bunny/ports
         - splayer-next        # 归ackerman/nexus
         - open-orpheus        # 归luorain/open-orpheus
-        - typora              # 归kammer/omadora
+        # - typora              # 归kammer/omadora
         - clash-verge-rev     # 归oak443/clash-verge-rev
         - firefox
         - firefox-langpacks
@@ -138,6 +138,7 @@ modules:
           - com.microsoft.Edge
           - no.mifi.losslesscut
           - fr.handbrake.ghb
+          - io.typora.Typora
 
   - type: files #
     files:
